@@ -113,22 +113,22 @@ mpiexec -n 4 .\mpi_02_hibrido.exe
 
 **Pantallazo — 2 procesos MPI × 4 hilos:**
 
-![Ejercicio 2 con 2 procesos](img/ej2_2x4.png)
+![Ejercicio 2 con 2 procesos](img/02_2process.png)
 
 **Pantallazo — 4 procesos MPI × 4 hilos:**
 
-![Ejercicio 2 con 4 procesos](img/ej2_4x4.png)
+![Ejercicio 2 con 4 procesos](img/02_4process.png)
 
 **Respuestas a las preguntas de análisis:**
 
 1. **Con 2 procesos MPI y 4 hilos OMP, ¿cuántas unidades de cómputo hay?**  
-   
+2 x 4 = 8 unidades de computo.
 
 2. **¿Diferencia entre `-n 4` (4 MPI, 4 hilos) vs `-n 1` (1 MPI, 16 hilos)?**  
-   
+1 MPI y 16 hilos ocurre todo en un solo proceso al contrario del otro, aparte que isa memoria compartida al contrario del otro que usa memoria distribuida.
 
 3. **¿Por qué `MPI_Init_thread` en lugar de `MPI_Init`?**  
-   
+Ya que se usan hilos con OpenMP es necesario inicializar el programa de esa manera, si se inicializa solo con MPI_Init tiene riesgo de generar errores raros o race conditions.
 
 ---
 
