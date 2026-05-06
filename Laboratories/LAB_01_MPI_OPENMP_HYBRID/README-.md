@@ -81,22 +81,22 @@ mpiexec -n 2 .\mpi_01_hola.exe
 
 **Pantallazo — 4 procesos:**
 
-![Ejercicio 1 con 4 procesos](img/ej1_4procesos.png)
+![Ejercicio 1 con 4 procesos](img/01_4process.png)
 
 **Pantallazo — 2 procesos:**
 
-![Ejercicio 1 con 2 procesos](img/ej1_2procesos.png)
+![Ejercicio 1 con 2 procesos](img/01_2process.png)
 
 **Respuestas a las preguntas de análisis:**
 
-1. **¿Por qué el orden de salida varía entre ejecuciones?**  
-   
+1. **¿Por qué el orden de salida varía entre ejecuciones?** 
+Ya que se ejecuta en paralelo, no existe un orden de salida, el primer proceso que se ejecuta es aleatorio. El sistema operativo decide cuándo cada proceso usa el CPU, a esto le podemos llamar no determinismo en la ejecución paralela. 
 
 2. **¿Qué pasaría si ejecutas con `-n 1`?**  
-   
+Se ejecuta un solo proceso, podemos decir que no tiene mucho sentido paralelizar asi el codigo para simplemente correr un solo proceso.
 
 3. **¿Para qué sirve `MPI_COMM_WORLD`?**  
-   
+Es practicamente un comunicador en donde todos los procesos estan incluidos y todo estos pueden comunicarse entre si.
 
 ---
 
