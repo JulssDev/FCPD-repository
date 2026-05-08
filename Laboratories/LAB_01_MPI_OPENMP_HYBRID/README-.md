@@ -2,7 +2,7 @@
 
 > **Asignatura:** Fundamentos de Programación Concurrente y Distribuida  
 > **Docente:** Prf. Alejandro Jaimes  
-> **Fecha:** DD/MM/2025  
+> **Fecha:** 07/05/2026  
 > **Repositorio:** [FCPD-repository](https://github.com/JulssDev/FCPD-repository)
 
 ---
