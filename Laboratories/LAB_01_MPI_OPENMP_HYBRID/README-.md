@@ -11,8 +11,8 @@
 
 | | Colaborador | GitHub |
 |---|---|---|
-| 👤 | Nombre Persona A | [@usuario_a](https://github.com/usuario_a) |
-| 👤 | Nombre Persona B | [@usuario_b](https://github.com/usuario_b) |
+| 👤 | Julio Martinez Triana | [@JulssDev](https://github.com/JulssDev) |
+| 👤 | Andres David Cuadrado | [@Datians](https://github.com/Datians) |
 
 **Repositorio:** [computacion-paralela-distribuida](https://github.com/usuario_a/computacion-paralela-distribuida)  
 **Rama principal:** `main`
