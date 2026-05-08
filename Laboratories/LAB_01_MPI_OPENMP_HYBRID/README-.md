@@ -2,7 +2,7 @@
 
 > **Asignatura:** Fundamentos de Programación Concurrente y Distribuida  
 > **Docente:** Prf. Alejandro Jaimes  
-> **Fecha:** 07/05/2026  
+> **Fecha:** 07 /05/2026  
 > **Repositorio:** [FCPD-repository](https://github.com/JulssDev/FCPD-repository)
 
 ---
@@ -143,7 +143,7 @@ mpiexec -n 4 .\mpi_03.exe
 
 **Pantallazo — resultado:**
 
-![Ejercicio 3 resultado](img/ej3_resultado.png)
+![Ejercicio 3 resultado](img/03_4process.png)
 
 **Verificación:**
 ```
@@ -154,13 +154,13 @@ Esperado   = 499999500000  ✓
 **Respuestas a las preguntas de análisis:**
 
 1. **¿Qué hace exactamente `MPI_Scatter`?**  
-  
+Reparte partes de un arreglo grande desde el proceso maestro (root) hacia todos los procesos.
 
 2. **¿Por qué `reduction(+:suma_local)` y no una variable compartida?**  
-  
+Porque OpenMP usa múltiples hilos al mismo tiempo, si usamos una variable compartida todos los hilos intentaran modificar la variable compartida simultaneamente, dos hilos leeram el valor al mismo tiempo y varios hilos calcularan usando el mismo valor viejo.
 
 3. **¿Qué pasaría si olvidaras `MPI_Reduce` e imprimieras `suma_local` en rank 0?**  
-   
+Solo se veria la suma parcial del proceso 0.
 
 ---
 
