@@ -177,32 +177,31 @@ mpicc -fopenmp mpi_04_speedup.c -o mpi_04.exe
 
 | Configuración   | Procesos MPI | Hilos OMP | Tiempo (s) | Speedup |
 |-----------------|:------------:|:---------:|:----------:|:-------:|
-| Secuencial      | 1            | 1         | 1.2340 s   | 1.00×   |
-| Solo MPI        | 4            | 1         | 0.3980 s   | 3.10×   |
-| Solo OMP        | 1            | 4         | 0.4120 s   | 2.99×   |
-| MPI + OMP       | 2            | 2         | 0.3510 s   | 3.51×   |
-| MPI + OMP       | 4            | 2         | 0.2180 s   | 5.66×   |
+| Secuencial      | 1            | 1         | 0.004640 s   | 0.44x   |
+| Solo MPI        | 4            | 1         | 0.006357 s   | 0.33x   |
+| Solo OMP        | 1            | 4         | 0.013181 s   | 0.14x   |
+| MPI + OMP       | 2            | 2         | 0.011430 s   | 0.19x   |
+| MPI + OMP       | 4            | 2         | 0.006618 s   | 0.32x   |
 
 **Pantallazos:**
 
-![Speedup solo MPI](img/ej4_solo_mpi.png)
-![Speedup solo OMP](img/ej4_solo_omp.png)
-![Speedup hibrido 2x2](img/ej4_2x2.png)
-![Speedup hibrido 4x2](img/ej4_4x2.png)
+![Speedup solo MPI](img/04_solo_mpi.png)
+![Speedup solo OMP](img/04_solo_omp.png)
+![Speedup hibrido 2x2](img/04_2x2.png)
+![Speedup hibrido 4x2](img/04_4x2.png)
 
 **Análisis:**
 
 1. **¿Coincide con la Ley de Amdahl?**  
-   
+Sí, la Ley de Amdahl nos muestra que el rendimiento paralelo está limitado por la parte secuencial del programa. Aunque se agreguen más procesos o hilos, siempre habrá una fracción que no puede paralelizarse y eso impide obtener un speedup perfecto.
 
 2. **¿Por qué más procesos/hilos no siempre dan mayor speedup?**  
-   
+Porque al aumentar procesos o hilos también aumenta el overhead de comunicación, sincronización y competencia por recursos del sistema. Esto lleva a un punto donde el costo de coordinar el paralelismo supera el beneficio obtenido.
 
 3. **¿Qué overhead introduce MPI que no existe en OpenMP puro?**  
-   
+MPI introduce overhead de comunicación entre procesos, ya que cada proceso tiene memoria independiente y los datos deben enviarse explícitamente. En OpenMP los hilos comparten memoria, por lo que la comunicación es más directa y menos costosa.
 
 ---
 
 ## Conclusiones
-
-**Añadir minimo 4-5** conclusiones.
+Dentro de este laboratorio podemos concluir que la combinación de MPI y OpenMP permite aprovechar mejor los recursos del procesador al distribuir el trabajo entre procesos e hilos simultáneamente, al igual el paralelismo reduce considerablemente el tiempo de ejecución frente a la versión secuencial, ya que se trabajan en multiples hilos al tiempo, obteniendo un speedup significativo. El speedup no crece de manera ilimitada debido a la existencia de partes secuenciales y al overhead de sincronización y comunicación, lo que podemos llamar como ley de Amdahl, la cual nos describe lo anterior dicho, que pudimos demostrar con los ejercicios que hicimos, tambien podemos concluir que MPI introduce costos adicionales de comunicación entre procesos que no existen en OpenMP puro, ya que cada proceso maneja memoria independiente por lo cual podemos decir que OpenMP es más eficiente en sistemas de memoria compartida, mientras que MPI resulta más escalable para trabajar en múltiples nodos o computadoras.
